@@ -18,7 +18,8 @@ def get_model_api():
 		result['input']=input_data
 		id=array(input_data)
 		preds=model.predict(id)
-		result['output']=preds.tolist()
+		rounded=[round(item[0]) for item in preds]
+		result['output']=rounded.tolist()
 		return result
 
 	return model_api
